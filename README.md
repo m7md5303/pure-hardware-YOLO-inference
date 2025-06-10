@@ -4,7 +4,7 @@ YOLO inference on FPGA without any interaction from software through utilizing F
 1- You have firstly to train your network using this repo [1].
 I have used raining dataset was for cars detection in this project.
 ## Files Description:
-<h3> <a src='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'>EA_lpyolo.ipnyb</a> </h3>
+<a src='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> <h3 >EA_lpyolo.ipnyb</h3> </a>
 
 
 
