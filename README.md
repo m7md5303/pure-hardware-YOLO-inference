@@ -4,15 +4,13 @@
 ## Introduction:
 THis repository is for YOLO inference on FPGA without any interaction from software through utilizing FINN framework, Vivado and Verilog HDL. The target board used was ZCU102. However, Pynq-Z2 was used for testing the algorithm.
 ## Project flow:
-<ul list-style-type='none'>
-<li>1- You have firstly to train your network using this repo [1].</li>
-<li>I have used dataset for cars detection in this project.</li>
-<li>2- export your pre-trained model using file 1</li>
-<li>3- Generate your ip whether through file 2 or file 3 from the following notebooks</li>
-<li>4- Verify the flow steps through file 4</li>
-<li>5- Design your block diagram in Vivado as in file 6 after adding file 5 to your project sources</li>
-<li>6- Simulate your system by Vivado simulator using file 7 (check the signals name are the same as you have in your project)</li>
-</ul>
+1- You have firstly to train your network using this repo [1]<br/>
+I have used dataset for cars detection in this project<br/>
+2- export your pre-trained model using file 1<br/>
+3- Generate your ip whether through file 2 or file 3 from the following notebooks<br/>
+4- Verify the flow steps through file 4<br/>
+5- Design your block diagram in Vivado as in file 6 after adding file 5 to your project sources<br/>
+6- Simulate your system by Vivado simulator using file 7 (check the signals name are the same as you have in your project)<br/>
 ## Files Description:
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> 1-export.ipynb </a> </h3>
 <p> The first step needed after the training process is exporting the model into QONNX format. You will need the best.pt file to instantiate a pre-trained model firstly before the export.</p>
