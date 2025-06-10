@@ -7,7 +7,7 @@ THis repository is for YOLO inference on FPGA without any interaction from softw
 1- You have firstly to train your network using this repo [1].
 I have used dataset for cars detection in this project.
 ## Files Description:
-<h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> </a> </h3>
+<h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> EA_lpyolo.ipynb </a> </h3>
 
 
 
