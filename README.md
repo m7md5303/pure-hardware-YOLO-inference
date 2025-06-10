@@ -34,14 +34,4 @@ I have used dataset for cars detection in this project<br/>
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/testbench.sv'> 7-TestBench </a> </h3>
 <p> This is a simple testbench that simulates the system using the AXI-Stream protocol with giving two consequent images loaded from the two memory files. The image must be 416 x 416 pixels for correct results. THe pixel values must have be represented in hexadecimal format as well.</p>
 
-## References:
-@inproceedings{Gunay_2022, series={EECSS’22},
-   title={LPYOLO: Low Precision YOLO for Face Detection on FPGA},
-   ISSN={2369-811X},
-   url={http://dx.doi.org/10.11159/mvml22.108},
-   DOI={10.11159/mvml22.108},
-   booktitle={Proceedings of the 8th World Congress on Electrical Engineering and Computer Systems and Science},
-   publisher={Avestia Publishing},
-   author={Gunay, Bestami and Okcu, Sefa Burak and Bilge, Hasan Sakir},
-   year={2022},
-   month=jul, collection={EECSS’22} }
+
