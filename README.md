@@ -4,7 +4,7 @@
 ## Introduction:
 THis repository is for YOLO inference on FPGA without any interaction from software through utilizing FINN framework, Vivado and Verilog HDL. The target board used was ZCU102. However, Pynq-Z2 was used for testing the algorithm.
 ## Project flow:
-<ul>
+<ul style='none'>
 <li>1- You have firstly to train your network using this repo [1].</li>
 <li>I have used dataset for cars detection in this project.</li>
 <li>2- export your pre-trained model using file 1</li>
