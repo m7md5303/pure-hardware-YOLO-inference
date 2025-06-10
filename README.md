@@ -4,7 +4,7 @@
 ## Introduction:
 THis repository is for YOLO inference on FPGA without any interaction from software through utilizing FINN framework, Vivado and Verilog HDL. The target board used was ZCU102. However, Pynq-Z2 was used for testing the algorithm.
 ## Project flow:
-1- You have firstly to train your network using this repo [1]<br/>
+1- You have firstly to train your network using this repo [<span> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/README.md#references'> 1 </a></span>]<br/>
 I have used dataset for cars detection in this project<br/>
 2- export your pre-trained model using file 1<br/>
 3- Generate your ip whether through file 2 or file 3 from the following notebooks<br/>
@@ -16,7 +16,7 @@ I have used dataset for cars detection in this project<br/>
 <p> The first step needed after the training process is exporting the model into QONNX format. You will need the best.pt file to instantiate a pre-trained model firstly before the export.</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> 2-EA_lpyolo.ipynb </a> </h3>
-<p> This is the main notebook in the project. It is responsible for generating the streaming dataflow ip (NN Accelerator) using FINN. You can find explained details in the markdown cells. Note that the notebook will be static if you are viewing through GitHub. You will need firstly yo install FINN to be able to run it. The folding values in thie notebook were used from [1].</p>
+<p> This is the main notebook in the project. It is responsible for generating the streaming dataflow ip (NN Accelerator) using FINN. You can find explained details in the markdown cells. Note that the notebook will be static if you are viewing through GitHub. You will need firstly yo install FINN to be able to run it. The folding values in thie notebook were used from [<span> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/README.md#references'> 1 </a></span>].</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> 3-EA_lpyolo-pynq.ipynb </a> </h3>
 <p> This notebook is almost the same as the previous one. However, it reduces the paralleslism in the network (folding) in order to decrease the needed resources and be able to deply it on PYNQ. The goal from this is visualizing the final output through the PYNQ Jupyter Notebook.</p>
