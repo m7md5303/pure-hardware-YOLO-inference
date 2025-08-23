@@ -15,6 +15,7 @@ I have used dataset for cars detection in this project<br/>
 ## Files Description:
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/export.ipynb'> 1-export.ipynb </a> </h3>
 <p> The first step needed after the training process is exporting the model into QONNX format. You will need the best.pt file to instantiate a pre-trained model firstly before the export.</p>
+<p>The used YOLO model in this repository can be found in this <span><a href='https://github.com/sefaburakokcu/finn-quantized-yolo.git'>repo</a></span></p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> 2-EA_lpyolo.ipynb </a> </h3>
 <p> This is the main notebook in the project. It is responsible for generating the streaming dataflow ip (NN Accelerator) using FINN. You can find explained details in the markdown cells. Note that the notebook will be static if you are viewing through GitHub. You will need firstly yo install FINN to be able to run it. The folding values in thie notebook were used from [<span> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/README.md#references'> 1 </a></span>].</p>
