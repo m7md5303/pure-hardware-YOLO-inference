@@ -18,19 +18,19 @@ I have used dataset for cars detection in this project<br/>
 <p>The used YOLO model in this repository can be found in this <span><a href='https://github.com/sefaburakokcu/finn-quantized-yolo.git'>repo</a></span></p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo.ipynb'> 2-EA_lpyolo.ipynb </a> </h3>
-<p> This is the main notebook in the project. It is responsible for generating the streaming dataflow ip (NN Accelerator) using FINN. You can find explained details in the markdown cells. Note that the notebook will be static if you are viewing through GitHub. You will need firstly yo install FINN to be able to run it. The folding values in thie notebook were used from [<span> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/README.md#references'> 1 </a></span>].</p>
+<p> This is the main notebook in the project. It is responsible for generating the streaming dataflow ip (NN Accelerator) using FINN. You can find explained details in the markdown cells. Note that the notebook will be static if you are viewing through GitHub. You will need firstly to install FINN to be able to run it. The folding values in this notebook were set as in this <span><a href='https://github.com/sefaburakokcu/finn-quantized-yolo.git'>repo</a></span>.</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/EA_lpyolo-pynq.ipynb'> 3-EA_lpyolo-pynq.ipynb </a> </h3>
-<p> This notebook is almost the same as the previous one. However, it reduces the paralleslism in the network (folding) in order to decrease the needed resources and be able to deploy it on PYNQ. The goal from this is visualizing the final output through the PYNQ Jupyter Notebook.</p>
+<p> This notebook is almost the same as the previous one. However, I reduced the paralleslism in the network (folding) in order to decrease the needed resources and to be able to deploy it on PYNQ-Z2. The goal from this is visualizing the final output through the PYNQ Jupyter Notebook.</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/Y_Verification.ipynb'> 4-Y_Verification.ipynb </a> </h3>
 <p> This notebook is for the verifying of the internally generated ONNX graphs during the flow before the hardware conversion. This is done through comparing the output values with the original model. The main function used was the built-in FINN function (execute_onnx)</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/yolo_Post.v'> 5-Post-Processing Block</a> </h3>
-<p> This Verilog module is the main core of the hardware inference. It post-processes the RAW output from the YOLO network without any interaction from the software. The used data was only related to the class score and objectness score where there was no care about the position of the object inside its grid but it was sufficient to know whether a grid has an object or no.</p>
+<p> This Verilog module is the main core of the hardware inference. It post-processes the RAW output from the YOLO network without any interaction from the software. The used data was only related to the class score and objectness score where there was no care about the position of the object inside its grid since it was sufficient to know whether the 32 x 32 pixel-grid has an object or no.</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/Sys%20bd.png'> 6-System Block Design </a> </h3>
-<p> This how the system should look like for simulation. It is also possible if you want to integrate it in your project or use it only in a hardware project. Just take care of the IO mapping to generate your bitstream properly</p>
+<p> This how the system should look like for simulation. It is also possible if you want to integrate it in your project or use it only as a standalone system. Just take care of the IO mapping to generate your bitstream properly</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/testbench.sv'> 7-TestBench </a> </h3>
 <p> This is a simple testbench that simulates the system using the AXI-Stream protocol with giving two consequent images loaded from the two memory files. The image must be 416 x 416 pixels for correct results. THe pixel values must have be represented in hexadecimal format as well.</p>
