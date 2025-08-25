@@ -1,6 +1,6 @@
 # Pure-Hardware YOLO-Inference <span><a href= '#paper'>[1]</a></span>
 #### If you find this repo useful don't forget to give a star.
-#### Don't forget to cite it if you used any of the provided codes
+#### Don't forget to cite <span><a href= '#paper'>the work</a></span> whenever you use it. 
 ## Introduction:
 THis repository is for YOLO inference on FPGA without any interaction from software through utilizing FINN framework, Vivado and Verilog HDL. The target board used was ZCU102. However, Pynq-Z2 was also used for testing the algorithm.
 ## Project flow:
