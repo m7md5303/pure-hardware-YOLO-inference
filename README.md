@@ -1,4 +1,4 @@
-# Pure-Hardware YOLO-Inference
+# Pure-Hardware YOLO-Inference <span><a href= '#paper'>[1]</a></span>
 #### If you find this repo useful don't forget to give a star.
 #### Don't forget to cite it if you used any of the provided codes
 ## Introduction:
@@ -35,4 +35,9 @@ I have used dataset for cars detection in this project<br/>
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/testbench.sv'> 7-TestBench </a> </h3>
 <p> This is a simple testbench that simulates the system using the AXI-Stream protocol with giving two consequent images loaded from the two memory files. The image must be 416 x 416 pixels for correct results. THe pixel values must have be represented in hexadecimal format as well.</p>
 
-
+<h2 id="paper">Reference:</h2>
+<ul>
+  <li>
+    "Pure-Hardware YOLO-Inference via FPGAs," in Conf. ICECS'25, Marrakesh, Accepted manuscript-in press
+  </li>
+</ul>
