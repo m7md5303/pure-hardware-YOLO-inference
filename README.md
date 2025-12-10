@@ -39,6 +39,6 @@ I have used dataset for cars detection in this project<br/>
 <h2 id="paper"><a href= '#paper'>Reference:</a></h2>
 <ul>
   <li>
-    "Pure-Hardware YOLO-Inference via FPGAs," in Conf. ICECS'25, Marrakesh, Accepted manuscript-in press
+   <a href='https://ieeexplore.ieee.org/document/11270746'>M. Khaled et al., "Pure-Hardware YOLO-Inference via FPGAs," 2025 32nd IEEE International Conference on Electronics, Circuits and Systems (ICECS), Marrakech, Morocco, 2025, pp. 1-4, doi: 10.1109/ICECS66544.2025.11270746.</a>
   </li>
 </ul>
