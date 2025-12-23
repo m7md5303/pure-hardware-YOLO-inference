@@ -2,7 +2,7 @@
 #### If you find this repo useful don't forget to give a star.
 #### Don't forget to cite <span><a href= '#paper'>the work</a></span> whenever you use it. 
 ## Introduction:
-THis repository is for YOLO inference on FPGA without any interaction from software through utilizing FINN framework, Vivado and Verilog HDL. The target board used was ZCU102. However, Pynq-Z2 was also used for testing the algorithm.
+THis repository is for YOLO inference on FPGA without any intervention from software through utilizing FINN framework, Vivado and Verilog HDL depending only on the Programmable Logic (PL) part of the FPGA. The target board used was ZCU102. However, Pynq-Z2 was also used for testing the algorithm.
 ## Project flow:
 #### Any input to the system must be 416 x 416 RGB image
 1- You have firstly to train your network and retrieve the .pt weights file<br/>
