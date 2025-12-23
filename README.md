@@ -35,7 +35,9 @@ I have used dataset for cars detection in this project<br/>
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/testbench.sv'> 7-TestBench </a> </h3>
 <p> This is a simple testbench that simulates the system using the AXI-Stream protocol with giving two consequent images loaded from the two memory files. The image must be 416 x 416 pixels for correct results. THe pixel values must have be represented in hexadecimal format as well.</p>
 <br>
-<br>
+<h2>Example of the results</h2>
+<p>You can find more in our paper</p>
+<img src='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/Img1_test.jpg'/>
 <h2 id="paper"><a href= '#paper'>Reference:</a></h2>
 <ul>
   <li>
