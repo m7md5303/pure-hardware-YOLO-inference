@@ -26,7 +26,7 @@ I have used dataset for cars detection in this project<br/>
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/Y_Verification.ipynb'> 4-Y_Verification.ipynb </a> </h3>
 <p> This notebook is for the verifying of the internally generated ONNX graphs during the flow before the hardware conversion. This is done through comparing the output values with the original model. The main function used was the built-in FINN function (execute_onnx)</p>
 
-<h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/yolo_Post.v'> 5-Post-Processing Block</a> </h3>
+<h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/yolo_post.v'> 5-Post-Processing Block</a> </h3>
 <p> This Verilog module is the main core of the hardware inference. It post-processes the RAW output from the YOLO network without any interaction from the software. The used data was only related to the class score and objectness score where there was no care about the position of the object inside its grid since it was sufficient to know whether the 32 x 32 pixel-grid has an object or no.</p>
 
 <h3> <a href='https://github.com/m7md5303/pure-hardware-YOLO-inference/blob/main/Sys%20bd.png'> 6-System Block Design </a> </h3>
