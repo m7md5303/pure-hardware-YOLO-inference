@@ -1,0 +1,98 @@
+- Pure Hardware YOLO Inference
+
+:: Idea start ::
+
+Our-team (grp-of) 6 Members
+    "    (name) Electronic Aliens
+    "    (prop) System that (succ1) in helping drivers to automate the cruise
+
+System (with) Hardware either FPGA or ASIC
+  "    (involves) no employed software
+
+:: Block Diagram ::
+
+System (consists) accelerator and post-processing block
+  "    (source) of AXI-stream data
+  "    (source-of) Inference output in the form of AXI-stream
+
+AXI-Stream data (repr) input image
+
+input image (setof) 416 x 416 pixels
+
+Inference output (consists) 13 row_det signals and detect_valid bit
+
+13 row_det signals (repr) 13 x 13 grid 
+
+each row_det (consists) 13 bits each
+
+each grid (repr) 13 x 13 pixels
+
+each grid predicition (ass) high detect_valid 
+
+// MORE INTO THE SYSTEM ARCHITECTURE
+
+neural network (abbrev) NN
+  "    (use-for) object-detection
+  "    (called) Low-Precesion You-Only-Look-Once in System
+
+Low-Precesion You-Only-Look-Once (abbrev) LPYOLO
+
+accelerator (called) streamingdataflowpartition
+    "        (bfr)  post-processing block
+    "       (suppl) post-processing block with raw detection bytes of the NN core computations
+    "       (genby) FINN Framework
+
+FINN Framework (gen) Hardware IP for NN
+    "          (crtd) Xilinx Reasearch Lab
+
+post-processing module (called) yolo_post
+
+yolo_post (implorg) Verilog
+
+Verilog (enables) good resource control
+  "     (support) higher throughput 
+
+raw detection bytes (bwd) accelerator
+
+yolo_post (do) processing on raw detection bytes 
+
+third of raw detection bytes (repr) probability of class and objectness score
+
+class and objectness score (repr-by) two bytes for each anchor box
+          "                (det)  the presence of cars when multiplied together
+
+NN output (contain) three anchor box
+
+:: Implementation ::
+
+Jupyter Notebooks (use-for) most of the implementation flow
+
+Colab Cloud (use-for) training and exporting
+
+After training the NN, trained model (derive) QONNX file
+
+QONNX file (repr) quantized NN
+  "        (delivaddr) FINN for the transformations
+
+transformations (involves) elimination floating point operations and NN layers to Hardware Conversions
+      
+FINN Framework (enables) transformations checking 
+
+transformations checking (sh-precede) IP generation
+
+Parallelism degree of the accelerator  (det-by) configurations (dec-by) designer
+
+post-processing (handle-by) yolo_post
+
+yolo_post (involves) no floating point operations 
+
+:: Inference Results ::
+
+System (gen) high-valued bits for grids (contain) cars
+  "    (fwd) reliable inference results
+  "     (pub-by) Our team in IEEE ICECS25 Proceedings
+
+Inference-rate (isXof) 67 FPS on ZCU102
+      "        (isXof) 18 FPS on PYNQ-Z2
+
+System (succ1) real-rime processings
