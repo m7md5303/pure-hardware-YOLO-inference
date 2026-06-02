@@ -2,40 +2,89 @@
 
 :: Idea start ::
 
+This section tackles the very beginning of the project, its objective and the team structure
+
 Our-team (grp-of) 6 Members
     "    (name) Electronic Aliens
     "    (prop) System that (succ1) in helping drivers to automate the cruise
 
+The goal was to exclude software from computations and produce a pure hardware system capable of efficently assisting drivers
+
 System (with) Hardware either FPGA or ASIC
   "    (involves) no employed software
+  "    (enables) autonomous driving
+  "    (imply) deployment of AI on hardware
+
+:: Literature Review ::
+
+This section discusses some of algorithms our-team explored before going through the project implementation
+
+CNN (use-for) detecting objects and classification
+
+R-CNN (abbrev) Regional CNN
+  "   (knownfor) producing accurate output
+  "   (knownfor) high latency
+
+After some research, Our-team figured out YOLO network would be more efficient for our application
+
+YOLO (enables) low latency inference
+  "  (enables) satisfactory accuracy
+  "   (sfor) You Only Look Once
+
+The issue was choosing specific version of YOLO, as it has many flavors and versions
+
+The choice (imply) hardware-friendly implementation
+
+Our-team (dec) to implement the system on ZCU102
 
 :: Block Diagram ::
+
+Here, we will discuss some details about the final system block diagram
+
+The system is consisting of two pure-hardware blocks implying no software for the whole inference
 
 System (consists) accelerator and post-processing block
   "    (source) of AXI-stream data
   "    (source-of) Inference output in the form of AXI-stream
+  "    (imply) only hardware modules on FPGA
 
 AXI-Stream data (repr) input image
 
 input image (setof) 416 x 416 pixels
+    "       (repr) the road view
+    "       (prov-by) stream of bytes packed in AXI-Stream frames
 
 Inference output (consists) 13 row_det signals and detect_valid bit
 
 13 row_det signals (repr) 13 x 13 grid 
 
-each row_det (consists) 13 bits each
+one row_det signal (repr) 13 horizontal line of grids
 
-each grid (repr) 13 x 13 pixels
+each grid (repr) 32 x 32 pixels which maps to one bit in a row_det signal
+  "       (repr-by) one bit in a row_det signal
 
 each grid predicition (ass) high detect_valid 
 
-// MORE INTO THE SYSTEM ARCHITECTURE
+This aims for guiding the receiving block from the system to catch only the valid prediction
+
+The detect_valid is for each single grid for protection purposes so that once the system detects a car it gives that grid result without waiting for the whole image
+
+This approach (enables) more safety
+      "       (enables) faster response
+
+:: More Details about the System ::
+
+In this section, we are going to go deeper into the system details
+
+The accelerator is for the neural network while the post-processing block is for processing the raw output of the neural network for getting the final inference results
 
 neural network (abbrev) NN
   "    (use-for) object-detection
   "    (called) Low-Precesion You-Only-Look-Once in System
 
 Low-Precesion You-Only-Look-Once (abbrev) LPYOLO
+                "                (variant) YOLO 
+                "                (repl) sigmoid with hard tanh for hardware compatibility
 
 accelerator (called) streamingdataflowpartition
     "        (bfr)  post-processing block
@@ -61,13 +110,22 @@ third of raw detection bytes (repr) probability of class and objectness score
 class and objectness score (repr-by) two bytes for each anchor box
           "                (det)  the presence of cars when multiplied together
 
+These scores represents probability so to get the final result, they are multiplied together
+
+The multiplication (imply) no floating point operations
+
 NN output (contain) three anchor box
 
+System (consider) the three boxes for safety purposes
+
 :: Implementation ::
+
+This section is to discuss detailed steps of implementation of the system
 
 Jupyter Notebooks (use-for) most of the implementation flow
 
 Colab Cloud (use-for) training and exporting
+    "       (prov-by) Google 
 
 After training the NN, trained model (derive) QONNX file
 
@@ -82,17 +140,33 @@ transformations checking (sh-precede) IP generation
 
 Parallelism degree of the accelerator  (det-by) configurations (dec-by) designer
 
+accelerator clock frequency (det-by) designer
+
+For our system, we set the frequency to be 150 MHz
+
+This should be sufficient for real time calculations
+
 post-processing (handle-by) yolo_post
 
 yolo_post (involves) no floating point operations 
 
 :: Inference Results ::
 
+Here, we will talk about the final results
+
+For visulaizing the hardware results, PYNQ Jupyter Notebook was used
+
+This implies implementing the accelerator on the PYNQ-Z2 besides the main board which is ZCU102
+
+Design on PYNQ-Z2 (imply) lower clock frequency because the lack in resources
+
+Clock frequency on PYNQ-z2 (hasX) 100 MHz
+
 System (gen) high-valued bits for grids (contain) cars
   "    (fwd) reliable inference results
   "     (pub-by) Our team in IEEE ICECS25 Proceedings
+  "    (succ1) real-rime processings
 
-Inference-rate (isXof) 67 FPS on ZCU102
-      "        (isXof) 18 FPS on PYNQ-Z2
+Inference-rate (hasX) 67 FPS on ZCU102
+      "        (hasX) 18 FPS on PYNQ-Z2
 
-System (succ1) real-rime processings
