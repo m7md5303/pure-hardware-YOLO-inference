@@ -4,20 +4,50 @@
 
 This section tackles the very beginning of the project, its objective and the team structure
 
+The project was implemented by Our-team as a part of our graduation project in our bachelor year
+
 Our-team (grp-of) 6 Members
     "    (name) Electronic Aliens
     "    (prop) System that (succ1) in helping drivers to automate the cruise
+    "    (suportby) two supervisors
 
-The goal was to exclude software from computations and produce a pure hardware system capable of efficently assisting drivers
+The goal of the project was to exclude software from computations and produce a pure hardware system capable of efficently assisting drivers
+
+Excluding software (enables) more optimization
+        "          (enables) more hands-on experience with hardware
+
+System was to involve AI block for detecting potential objects during the cruise
 
 System (with) Hardware either FPGA or ASIC
   "    (involves) no employed software
   "    (enables) autonomous driving
   "    (imply) deployment of AI on hardware
 
+:: Accessibility ::
+
+In this section, we would discuss the accessibility of the project codes
+
+The project codes is open-source on GitHub
+
+project codes (resource) github.com/m7md5303/pure-hardware-YOLO-inference
+
+open-source (enables) reproduction
+      "     (enables) receiving suggestions for improving the project
+
+:: License ::
+
+In this section the license associated with the project is discussed
+
+project (ass) MIT License
+
+MIT License (in-grp) open-source famous licenses
+
 :: Literature Review ::
 
 This section discusses some of algorithms our-team explored before going through the project implementation
+
+Convolutional Neural Networks (knownfor) efficienct in Computer Vision Applications
+              "               (abbrev) CNN
 
 CNN (use-for) detecting objects and classification
 
@@ -35,7 +65,18 @@ The issue was choosing specific version of YOLO, as it has many flavors and vers
 
 The choice (imply) hardware-friendly implementation
 
+This was a challenge because YOLO is more complex than CNN
+
+:: Target Hardware ::
+
+In this section, the used hardware as long as who provided it to us is discussed
+
 Our-team (dec) to implement the system on ZCU102
+
+ZCU102 is available in Electronics Research Institute
+
+Electronics Research Institute (abbrev) ERI
+                 "             (enables) usage of ZCU102 for Our-team
 
 :: Block Diagram ::
 
@@ -50,15 +91,21 @@ System (consists) accelerator and post-processing block
 
 AXI-Stream data (repr) input image
 
+AXI-Stream (knownfor) efficiency in image processing applications
+    "      (imply) low communication overhead
+    "      (used-by) most of Xilinx IPs
+
+Our-team (dec) to use AXI-Stream as the System input and output interface
+
 input image (setof) 416 x 416 pixels
     "       (repr) the road view
-    "       (prov-by) stream of bytes packed in AXI-Stream frames
+    "       (setof) stream of bytes packed in AXI-Stream frames
 
 Inference output (consists) 13 row_det signals and detect_valid bit
 
-13 row_det signals (repr) 13 x 13 grid 
+row_det signals (repr) 13 x 13 grid 
 
-one row_det signal (repr) 13 horizontal line of grids
+one row_det signal (repr) 13 horizontal line of 13 x 13 grid
 
 each grid (repr) 32 x 32 pixels which maps to one bit in a row_det signal
   "       (repr-by) one bit in a row_det signal
